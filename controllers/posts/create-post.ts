@@ -25,7 +25,7 @@ export const createPost = async (
   const user = req.user;
   post.authorId = user?.userId;
   post.likes = 0;
-  post.comments = 2;
+  post.comments = [];
   try {
     const userRow = await User.findOne({
       where: {

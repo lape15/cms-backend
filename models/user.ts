@@ -51,6 +51,9 @@ User.init(
     photo: {
       type: DataTypes.STRING,
     },
+    description: {
+      type: DataTypes.STRING,
+    },
   },
 
   {

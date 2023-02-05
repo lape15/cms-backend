@@ -41,14 +41,15 @@ export const uploadProfilephoto = async (req: Request, res: Response) => {
   let dataURI = "data:" + file!.mimetype + ";base64," + b64;
   try {
     const result = await uploadImage(dataURI);
+
     if (result) {
       const userObj = await User.findOne({
         where: {
           email: user!.userEmail,
         },
       });
-      await userObj!.update({ photo: result.url });
-      console.log({ userObj });
+      await userObj!.update({ photo: result.secure_url });
+
       res.status(200).send({
         message: "Image uploaded",
         user: userObj,

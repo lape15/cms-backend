@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import bCrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import Post from "../models/post";
+
 const generateHash = (password: string) => {
   return bCrypt.hashSync(password, bCrypt.genSaltSync(8));
 };
@@ -34,7 +35,6 @@ export const createLocalUser = async (
     if (istaken) return res.send({ message: "Email exists already!" });
     try {
       const result = await User.create(user);
-      console.log({ result });
       const newUser = {
         userId: result.getDataValue("id"),
         email: result.getDataValue("email"),

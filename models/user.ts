@@ -48,6 +48,9 @@ User.init(
       //     key: "authorId",
       //   },
     },
+    photo: {
+      type: DataTypes.STRING,
+    },
   },
 
   {

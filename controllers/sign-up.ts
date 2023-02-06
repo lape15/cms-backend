@@ -2,7 +2,6 @@ import User from "../models/user";
 import { NextFunction, Request, Response } from "express";
 import bCrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import Post from "../models/post";
 
 const generateHash = (password: string) => {
   return bCrypt.hashSync(password, bCrypt.genSaltSync(8));
